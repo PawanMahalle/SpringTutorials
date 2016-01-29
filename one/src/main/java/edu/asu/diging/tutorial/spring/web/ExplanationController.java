@@ -10,15 +10,14 @@ import edu.asu.diging.tutorial.spring.service.IService;
 
 @Controller
 public class ExplanationController {
-	
+
 	@Autowired
 	private IService moodService;
 
-	@RequestMapping(value="/explanation/{mood}")
+	@RequestMapping(value = "/explanation/{mood}")
 	public String showExplanation(@PathVariable("mood") String mood, Model model) {
 		model.addAttribute("mood", mood);
 		model.addAttribute("explanation", moodService.getCurrentMoodExplanation(mood));
-		
 		return "explanation";
 	}
 }
